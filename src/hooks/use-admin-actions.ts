@@ -47,7 +47,7 @@ export const useAdminActions = () => {
     } else {
       toast({
         variant: "destructive",
-        title: "University Not crated",
+        title: "University Not created",
         description: res.message,
       });
     }
