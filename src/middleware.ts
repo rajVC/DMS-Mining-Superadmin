@@ -13,6 +13,9 @@ export async function middleware(req: NextRequest) {
 
   const role = session.user_type as string; // Ensure roleType exists
 
+  if (role !== "admin") {
+    return NextResponse.redirect(new URL("/auth/login", req.url)); // Redirect to login if not authenticated
+  }
   // Define dashboards for each role
   // const dashboardRoutes: Record<string, string> = {
   //   admin: "/admin/dashboard",
