@@ -14,6 +14,7 @@ import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { LoginData, loginSchema } from "@/schema/login-schema";
+import { getAuthError } from "@/actions/auth-error";
 
 export default function LoginForm({
   className,
@@ -50,16 +51,17 @@ export default function LoginForm({
         router.push(callbackUrl || "/");
         return;
       }
+      const error = await getAuthError();
       toast({
         variant: "destructive",
         title: "Authentication failed",
-        description: "Please check your credentials and try again",
+        description: error || "Please check your credentials and try again",
       });
-    } catch {
+    } catch(error: unknown) {
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: "There was a problem with your request."
+        description: error instanceof Error ? error.message : "There was a problem with your request."
       })
     } finally {
       setIsLoading(false);
