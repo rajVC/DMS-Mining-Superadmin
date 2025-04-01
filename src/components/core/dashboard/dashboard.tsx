@@ -28,7 +28,7 @@ export default function DashboardPage({ data, role, isError, msg }: DashboardCom
             {columns.length > 0 ? (columns.map((value) => (
                 <Card key={value.dataFields.join("-")} className="flex flex-col justify-center items-center px-5 gap-3 rounded-m w-full max-w-[450px] min-h-[200px] text-center">
                     <div className="w-full h-full flex flex-col justify-center items-center gap-1 md:gap-0">
-                        <CardTitle className="text-xl md:text-lg lg:text-xl font-medium">{value.label}</CardTitle>
+                        <CardTitle className="text-xl md:text-base lg:text-xl font-medium">{value.label}</CardTitle>
                         <CardContent className="text-3xl md:text-2xl lg:text-3xl font-semibold p-0">
                             {value.dataFields.map((key) => data[key])}
                         </CardContent>

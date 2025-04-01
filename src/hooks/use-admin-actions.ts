@@ -39,7 +39,7 @@ export const useAdminActions = () => {
 
     if (res.status === "success") {
       toast({
-        title: "Create university successful",
+        title: "Create University Successful",
         description: res.message,
       });
       router.refresh();
@@ -47,7 +47,7 @@ export const useAdminActions = () => {
     } else {
       toast({
         variant: "destructive",
-        title: "University Not created",
+        title: "University Not Created",
         description: res.message,
       });
     }
@@ -67,7 +67,7 @@ export const useAdminActions = () => {
 
     if (res.status === "success") {
       toast({
-        title: "Assign license successful",
+        title: "Assign License Successful",
         description: res.message,
       });
       router.refresh();
@@ -75,7 +75,7 @@ export const useAdminActions = () => {
     } else {
       toast({
         variant: "destructive",
-        title: "Not Assign",
+        title: "Not Assign License",
         description: res.message,
       });
     }
@@ -91,7 +91,7 @@ export const useAdminActions = () => {
 
     if (res.status === "success") {
       toast({
-        title: "Update university successful",
+        title: "Update University Successful",
         description: res.message,
       });
       router.refresh();
